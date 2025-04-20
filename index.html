@@ -431,6 +431,18 @@ button[type="submit"]:hover {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    // 🔥 Evento personalizado para GTM al enviar el formulario
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.form-box form');
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'formulario_enviado_tingo' });
+      });
+    }
+  });
   </script>
 
 
